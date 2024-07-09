@@ -12,6 +12,7 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Footer;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Header;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.menubar.MenuBar;
@@ -56,9 +57,16 @@ public class MainLayout extends AppLayout {
     }
 
     private void addDrawerContent() {
+    	
+    	StreamResource imageResource = new StreamResource("myimage.png",
+    	        () -> getClass().getResourceAsStream("/images/logodth.png"));
+
+    	Image image = new Image(imageResource, "My Streamed Image");
+    	image.setWidth("230px");
+    	
         Span appName = new Span("myDTH");
         appName.addClassNames(LumoUtility.FontWeight.SEMIBOLD, LumoUtility.FontSize.LARGE);
-        Header header = new Header(appName);
+        Header header = new Header(image);
 
         Scroller scroller = new Scroller(createNavigation());
 
@@ -69,7 +77,7 @@ public class MainLayout extends AppLayout {
         SideNav nav = new SideNav();
 
         if (accessChecker.hasAccess(MainPageView.class)) {
-            nav.addItem(new SideNavItem("Main Page", MainPageView.class, LineAwesomeIcon.PENCIL_RULER_SOLID.create()));
+            nav.addItem(new SideNavItem("Main Page", MainPageView.class, LineAwesomeIcon.ARCHWAY_SOLID.create()));
 
         }
 
