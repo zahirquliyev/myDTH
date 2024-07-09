@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Male",
+    "abbreviation": "M",
+    "id": "0"
+  },
+  {
+    "name": "Female",
+    "abbreviation": "F",
+    "id": "1"
+  }
+]
